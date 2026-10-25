@@ -1,5 +1,5 @@
 ---
-name: claude-packer-banner
+name: packer-banner
 description: >-
   派歌（Packer）官網 banner 月更全流程：Gmail 讀需求信 → 在 Notion 開頁面填內文（欄位由使用者手動填）→
   Figma 套版完稿 → 輸出 JPG 到交付夾。觸發詞：「做派歌官網圖」（可直接說「做 10 月派歌官網圖」）。

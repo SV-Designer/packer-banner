@@ -1,4 +1,4 @@
-# claude-packer-banner
+# packer-banner
 
 官網 banner 月更的 Claude Code skill：Gmail 讀需求信 → Notion 開接單卡（只填內文）→ Figma 套版完稿 → 輸出 JPG 到交付夾。
 
@@ -30,7 +30,7 @@ Gmail、Notion、Figma（含 `use_figma`／`upload_assets`）。
 ## 安裝
 
 ```bash
-git clone <this repo> ~/.claude/skills/claude-packer-banner
+git clone <this repo> ~/.claude/skills/packer-banner
 ```
 
 ## 授權
