@@ -1,3 +1,6 @@
 .DS_Store
 *.bak
 *.bak-*
+
+# 維護筆記只給本機 Claude 讀，含真實路徑，永不進版控
+/CLAUDE.md
