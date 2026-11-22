@@ -5,10 +5,10 @@
 
 ## 背景：雲端 MCP 與字重
 
-✅ **Claude 這端不需要使用者開桌機版 Figma** —— MCP 走雲端 `https://mcp.figma.com/mcp`，
+✅ **Claude 這端不需要使用者開桌面版 Figma** —— MCP 走雲端 `https://mcp.figma.com/mcp`，
 程式在 Figma 伺服器上跑（所以讀不到本機字型，見專案文件〈硬限制一〉）。
 ✅ **模版只用雲端有的字重**（`Black`／`Bold`），填字不代換、畫面即最終樣子。
-⇒ **G2 開桌機版純粹是讓使用者看稿與調顏色**，不是為了修字重。
+⇒ **G2 開桌面版純粹是讓使用者看稿與調顏色**，不是為了修字重。
 模版若被加入本機專屬字重，才會重新出現落差（見〈硬限制一〉）。
 
 ## 背景：G3 使用者在調什麼
@@ -227,7 +227,7 @@ if (txt.width > inst.parent.width) inst.setProperties({ 'Property 1': 'H2' });
 
 ## 10. 開 Figma 給使用者看　⛔ G2
 
-內容全部套進去後，**Claude 主動幫使用者開啟 Figma 桌機版並跳到當月 page**。
+內容全部套進去後，**Claude 主動幫使用者開啟 Figma 桌面版並跳到當月 page**。
 
 **先偵測 Figma 有沒有在跑**（在跑就不要重開，避免打斷他）：
 ```bash
@@ -237,7 +237,7 @@ else
   open "figma://file/<FIGMA_FILE_KEY>?node-id=<當月 page id>"
 fi
 ```
-> `figma://` 是桌機版的深層連結。若打不開，退而求其次用一般網址：
+> `figma://` 是桌面版的深層連結。若打不開，退而求其次用一般網址：
 > `open "https://www.figma.com/design/<FIGMA_FILE_KEY>/?node-id=<當月 page id>"`
 
 ## 10b. 請使用者調顏色並核對　⛔ G3
