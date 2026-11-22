@@ -30,19 +30,19 @@ description: >-
 
 ⚠️ **動 `use_figma` 前一定要先載入 `/figma-use` skill**（官方硬性要求）。
 
-✅ Figma MCP 走雲端，**Claude 這端不需要使用者開桌機版**；G2 開桌機版純粹是讓使用者看稿與調顏色（背景見 `<SKILL_DIR>/references/figma-build.md` 開頭）。
+✅ Figma MCP 走雲端，**Claude 這端不需要使用者開桌機版**；G2 開桌機版純粹是讓使用者看稿與調顏色（背景見 `${CLAUDE_SKILL_DIR}/references/figma-build.md` 開頭）。
 
 📁 **路徑變數**（使用者自己設定，見 README）：`$PROJ_ROOT`＝專案資料夾、`$DELIV_ROOT`＝輸出暫存夾（G4 前）、`$FINAL_ROOT`＝最終交付夾（G4 OK 後搬過去）。
 
-📖 **reference 分工**（每步動手前先讀對應那份，裡面是可直接抄的指令與程式碼）。下表與內文的 `<SKILL_DIR>` 要換成實際路徑（＝本 skill 資料夾 `${CLAUDE_SKILL_DIR}`）再讀：
+📖 **reference 分工**（每步動手前先讀對應那份，裡面是可直接抄的指令與程式碼）。下表路徑會自動展開，直接讀；references 檔內文寫的 `<SKILL_DIR>` 代表本 skill 資料夾，照著換成實際路徑再執行（references 不會自動替換）：
 
 | 步驟 | 讀這份 |
 |---|---|
-| 0～1 建工作區、讀信 | `<SKILL_DIR>/references/mail-and-month.md` |
-| 2～3 文案定稿、Notion 開頁 | `<SKILL_DIR>/references/notion-card.md` |
-| 4～5 Seafile 下載、壓縮命名 | `<SKILL_DIR>/references/assets.md` |
-| 6～10b Figma 建 page、置圖、填字、H1/H2、命名、開 Figma、G3 | `<SKILL_DIR>/references/figma-build.md` |
-| 11～13 輸出、G4、收尾 | `<SKILL_DIR>/references/export.md` |
+| 0～1 建工作區、讀信 | `${CLAUDE_SKILL_DIR}/references/mail-and-month.md` |
+| 2～3 文案定稿、Notion 開頁 | `${CLAUDE_SKILL_DIR}/references/notion-card.md` |
+| 4～5 Seafile 下載、壓縮命名 | `${CLAUDE_SKILL_DIR}/references/assets.md` |
+| 6～10b Figma 建 page、置圖、填字、H1/H2、命名、開 Figma、G3 | `${CLAUDE_SKILL_DIR}/references/figma-build.md` |
+| 11～13 輸出、G4、收尾 | `${CLAUDE_SKILL_DIR}/references/export.md` |
 
 ## 停點 G1～G4（G1／G2 可自動略過，G3／G4 一定要等使用者）
 
@@ -64,7 +64,7 @@ description: >-
 | **0** | 建當月工作區（`$PROJ/$M`、`素材暫存/$M/{速報,推薦,案例,_上傳用}`、`$DELIV/$M/{1-發行速報,2-發行推薦,3-發行案例}`） | 月份偵測：觸發語 → 信件內文正則 → 都沒有才問。🚫 不用來信日期推定 |
 | **1** | 讀需求信 ⛔ G1 | `search_threads('subject:派歌 官網')` → `get_thread(PLAIN_TEXT)`，**讀整串**；建議外包 subagent（`general-purpose`，`model: haiku`） |
 | **2** | 整理文案 → `$PROJ/{月}月/文案定稿.md` | 簡體錯字直接改並說一聲；溝通題不進卡但口頭提醒；張數回信件重數 |
-| **3** | Notion「今晚我想來點」開新頁面（**使用者已貼自開卡網址 → 不開新卡，`notion-update-page` `replace_content` 只寫內文**，見 `<SKILL_DIR>/references/notion-card.md`） | `properties` **只帶 `Name`**；內文照上個月卡骨架（先 `notion-fetch` 現查）；案例三層切法 |
+| **3** | Notion「今晚我想來點」開新頁面（**使用者已貼自開卡網址 → 不開新卡，`notion-update-page` `replace_content` 只寫內文**，見 `${CLAUDE_SKILL_DIR}/references/notion-card.md`） | `properties` **只帶 `Name`**；內文照上個月卡骨架（先 `notion-fetch` 現查）；案例三層切法 |
 | **4** | 下載 Seafile 素材 | 優先 `_scripts/parse_mail.py` ＋ `seafile_fetch.sh`；跑完核對 `清單.md` 的 tw／cn 分界 |
 | **5** | 壓縮＋流水號命名 | `sips -Z 1600 q88`；速報順序**完全照信件**；順序固定「速報 → 推薦 → 案例」 |
 | **6** | 建當月 Figma page | 用 id `18:386` 定位模版 → clone section → **建對照表＋`swapComponent`** → 驗 Artist 接線 → `get_metadata` 重取 id |
