@@ -20,9 +20,20 @@
 
 ## ⚠️ 這支 skill 不是自足的
 
-`SKILL.md` 是**流程正本**（步驟順序、防呆、可直接抄的程式碼）。
+`SKILL.md` 是**流程骨架**（步驟順序、停點、防呆清單），每步可直接抄的指令與程式碼拆在 `references/`：
+
+| 檔 | 步驟 |
+|---|---|
+| `references/mail-and-month.md` | 0～1 建當月工作區、讀需求信（三個路徑變數在這裡設） |
+| `references/notion-card.md` | 2～3 文案定稿、Notion 開頁（使用者自開卡就只寫內文） |
+| `references/assets.md` | 4～5 Seafile 下載、壓縮與流水號命名 |
+| `references/figma-build.md` | 6～10b Figma 建 page、置圖、填字、H1/H2、命名、開 Figma、G3 |
+| `references/export.md` | 11～13 輸出、G4 確認後搬到最終交付夾、收尾 |
+
 模版結構、node id、字重對應表、文案整理規則的正本在**專案自己的 `CLAUDE.md`**，刻意不複製進 skill（避免同一套規則養兩份而分岔）。
-⇒ 直接裝上去不會馬上能跑，要先照上表補齊路徑，並自備一份專案 `CLAUDE.md`。
+⇒ 直接裝上去不會馬上能跑，要先照最上面的佔位符表補齊路徑（`SKILL.md` 與 `references/*.md` 都要換），並自備一份專案 `CLAUDE.md`。
+
+路徑變數可在 shell 設定檔先 `export PROJ_ROOT=… DELIV_ROOT=… FINAL_ROOT=…`；沒設的話步驟 0 會直接報錯停下，不會寫到錯的地方。
 
 ## 需要的 MCP
 
