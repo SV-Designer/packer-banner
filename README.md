@@ -11,7 +11,8 @@
 | 佔位符 | 意思 |
 |---|---|
 | `$PROJ_ROOT` | 你的專案資料夾絕對路徑（放素材暫存、文案定稿、`_scripts/`） |
-| `$DELIV_ROOT` | 成品 JPG 的交付夾絕對路徑 |
+| `$DELIV_ROOT` | 成品 JPG 的輸出暫存夾絕對路徑（G4 確認前先放這） |
+| `$FINAL_ROOT` | 最終交付夾絕對路徑（G4 確認 OK 後整個月份夾搬過去；不存在會停下，不自動建） |
 | `<FIGMA_FILE_KEY>` | Figma 檔案 key |
 | `<NOTION_DATA_SOURCE_ID>` | Notion 接單資料庫的 data_source_id |
 | `<SEAFILE_HOST>` | 素材下載用的 Seafile 主機 |
